@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ova Games</title>
+    <link rel="icon" href="projectfv.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    *{
+        outline:0px;
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        background-image: url("projectbg.jpg");
+        width: 100%;
+        height: 370vh;
+    }
+    .con{
+        width: 70%;
+        height: 360vh;
+        margin: auto;
+        margin-top: 8%;
+        border-radius: 10px;
+        background-color: rgba(50, 47, 47, 0.928);
+    }
+    /* navigation bar red */
+    .nav{
+        width: 100%;
+        height: 40px;
+        border-radius: 8px 8px 0 0;
+        background: linear-gradient(rgb(123, 37, 3) 20%,rgb(218, 14, 14));
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: gold;
+    }
+    .menu a{
+        text-decoration: none;
+        color: gold;
+       
+    } 
+    .nav input{
+        width: 130px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    .nav button{
+        width: 60px;
+        height: 25px;
+        margin-right: 40px;
+        border-radius: 5px;
+        border: 1px solid black;
+        background-color: rgb(165, 26, 7);
+        font-size: 10px;
+        color: white;
+        box-shadow: 0px 0px 2px 2px rgba(6, 0, 0, 0.431);
+    }
+    .nav input:focus{
+        border: 1px solid black;
+    }
+    .home:hover,.release:hover,.tutorials:hover,.donate:hover,.faq:hover{
+        background-color: rgba(215, 36, 0, 0.936);
+    }
+    .home:hover p,.release:hover .ri,.tutorials:hover .tu,.donate:hover p,.faq:hover p{
+        color: white;
+    }
+    .home{
+        
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .home p{
+        margin-top: 10px;
+    }
+    .release,.tutorials,.donate,.faq{
+       
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        cursor: pointer;
+    }
+    .release p,.tutorials p,.donate p,.faq p{
+        padding-top: 10px;
+    }
+    .fa-solid{
+        font-size: 12px;
+        transition: transform 1s;
+    }
+    .release:hover .fa-solid,.tutorials:hover .fa-solid{
+        transform: rotateZ(90deg);
+    }
+    .release{
+        position: relative;
+        width: 110px;
+    }
+    .tutorials{
+        position: relative;
+        width: 80px;
+    }
+    .smenu{
+        background-color: rgba(215, 36, 0);
+        position: absolute;
+        top: 40px;
+        right: -70px;
+        display: none;
+    }
+    .smenut{
+        background-color: rgba(215, 36, 0);
+        position: absolute;
+        top: 40px;
+        right: -100px;
+        display: none;
+    }
+    .gog,.scene,.repack,.virtual,.emulator,.how,.bypass,.software{
+        padding-left: 20px;
+        width: 200px;
+        height: 40px;
+        
+    }
+    .release:hover .smenu,.tutorials:hover .smenut{
+        display: block;
+        z-index: 2;
+    }
+    .gog:hover,.scene:hover,.repack:hover,.virtual:hover,.emulator:hover,.how:hover,.bypass:hover,.software:hover{
+        background-color: rgb(125, 8, 8);
+    }
+    .gog:hover p,.scene:hover p,.repack:hover p,.virtual:hover p,.emulator:hover p,.how:hover p,.bypass:hover p,.software:hover p{
+        color: white;
+    }
+    /* navigation bar black */
+      .cato{
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(rgb(49, 48, 48) 20%,rgb(26, 25, 25));
+        display: flex;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .cato a{
+        text-decoration: none;
+        color: white;
+    }
+    .cato p{
+        margin-top: 10px;
+    }
+    .action,.adventure,.anime,.arcade,.casual,.fighting,.horror,.platformer,.puzzle,.racing,.rpg,.shooter,.simulation,.sports,.strategy,.vn{
+        height: 40px;
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+    .action:hover,.adventure:hover,.anime:hover,.arcade:hover,.casual:hover,.fighting:hover,.horror:hover,.platformer:hover,.puzzle:hover,.racing:hover,.rpg:hover,.shooter:hover,.simulation:hover,.sports:hover,.strategy:hover,.vn:hover{
+        color: gold;
+        background-color: rgba(16, 13, 13, 0.255);
+    }
+    .action:hover p,.adventure:hover p,.anime:hover p,.arcade:hover p,.casual:hover p,.fighting:hover p,.horror:hover p,.platformer:hover p,.puzzle:hover p,.racing:hover p,.rpg:hover p,.shooter:hover p,.simulation:hover p,.sports:hover p,.strategy:hover p,.vn:hover p{
+        color: gold;
+    }
+    /* OVA games logo */
+    .logo{
+        display: flex;
+        width: 250px;
+        align-items: baseline;
+        margin-top: 30px;
+        margin-left: 25px;
+    }
+    .ova{
+        font-size: 60px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+        color: gold;  
+        animation: ova 6s infinite;
+    }
+    @keyframes ova{
+        20%{
+           color: gold;
+           text-shadow: 0 0 20px red,0 0 10px red;
+        }
+        40%{
+           color: red;
+           text-shadow: 0 0 0 gold,0 0 0 gold;
+        }
+        60%{
+           color: red;
+           text-shadow: 0 0 20px gold,0 0 10px gold;
+        }
+        80%{
+           color: gold;
+           text-shadow: 0 0 0 red,0 0 0 red;
+        }
+    }
+    .games{
+        font-size: 30px;
+        margin-left: 12px;
+        font-family: cursive;
+        color: white;
+        animation: games 4s infinite;    
+    }
+    @keyframes games{
+        10%{
+           text-shadow: 0 0 10px white,0 0 20px white,0 0 30px white;
+        }
+    }
+    /* designing side container */
+    .scon{
+        width: 300px;
+        height: 135vh;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .snav{
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(rgb(129, 126, 126) 30%,rgb(49, 47, 47));
+        border-radius: 0 15px 0 0;
+    }
+    .exclusive{
+        font-size: 14px;
+        color: white;
+        margin-left: 15px;
+        padding-top: 6px;
+    }
+    .wwe,.revil,.milesmoral,.uncharted,.witcher{
+        width: 100%;
+        height: 25vh;
+        transition: transform 1s;
+    }
+    .wwe:hover,.revil:hover,.milesmoral:hover,.uncharted:hover,.witcher:hover{
+        transform: scale(1.1,1.1);
+        box-shadow: 0px 0px 5px 3px red;
+    }
+
+    .gameblock{
+        width: 62%;
+        height: 312vh;
+        position: relative;
+        left: 350px;
+        bottom: 152vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .tombraider{
+        width: 100%;
+        height: 60vh;
+        border-radius: 8px 8px 0 0;
+    }
+    .links{
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(rgb(123, 37, 3) 20%,rgb(218, 14, 14));
+        border-radius: 8px 8px 0 0;
+    }
+    .links p{
+        color: white;
+        font-size: 14px;
+        margin-left: 14px;
+        padding-top: 6px;
+        font-family: cursive;
+    }
+    .links p:hover{
+        color: red;
+    }
+    .links a{
+        text-decoration: none;
+        margin-right: 5px;
+    }
+    .subgame video{
+        width: 100%;
+        height: 55vh;
+        display: none;
+        object-fit: cover;
+    }
+    .subgame img{
+        width: 100%;
+        height: 55vh;
+    }
+    .subgame:hover video{
+        display: block;
+        box-shadow: 0px 0px 5px 3px gold;
+        transition: width 2s height 2;
+    }
+    .subgame:hover img{
+        display: none;
+    }
+    .video:hover{
+        transition-delay: 2s;
+    }
+    /* Pagination */
+    .pages{
+        width: 36%;
+        height: 4vh;
+        position: relative;
+        bottom: 940px;
+        left: 340px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10{
+        width:26px;
+        height: 26px;
+        background-color: rgba(50, 47, 47, 0.928);
+        border: none;
+    }
+    .next{
+        width: 40px;
+        height: 26px;
+        background-color: rgba(50, 47, 47, 0.928);
+        border: none;
+    }
+    .pages a{
+        text-decoration: none;
+        color: white;
+    }
+    .p1:hover,.p2:hover,.p3:hover,.p4:hover,.p5:hover,.p6:hover,.p7:hover,.p8:hover,.p9:hover,.p10:hover{
+        background-color: green;
+        border: none;
+    }
+    .next:hover{
+        background-color: green;
+    }
+    .copywrite{
+        color: white;
+        position: relative;
+        bottom: 860px;
+        left: 20px;
+        font-family: cursive;
+    }
+</style>
+<body>
+    <div class="con">
+        <div class="nav">
+            <div class="menu">
+               <div class="home"><a href="#"><p>Home</p></a></div>
+               <div class="release"><a href="https://www.ovagames.com/#"><p class="ri">Release Index <i class="fa-solid fa-angles-right"></i> </p></a>
+                <div class="smenu">
+                    <div class="gog"><a href="https://www.ovagames.com/category/gog"><p>GOG Games</p></a></div>
+                    <div class="scene"><a href="https://www.ovagames.com/category/scene"><p>Scene Games</p></a></div>
+                    <div class="repack"><a href="https://www.ovagames.com/category/repack"><p>Repack Games</p></a></div>
+                    <div class="virtual"><a href="https://www.ovagames.com/category/vr"><p>Virtual Reality (VR) Games</p></a></div>
+                    <div class="emulator"><a href="https://www.ovagames.com/category/emulator"><p>Emulater Games</p></a></div>
+
+                </div>
+               </div>
+               <div class="tutorials"><a href="https://www.ovagames.com/#"><p class="tu">Tutorials <i class="fa-solid fa-angles-right"></i> </p></a>
+                <div class="smenut">
+                    <div class="how"><a href="https://www.ovagames.com/tutorial-download-from-ovagames"><p>How To Download Games</p></a></div>
+                    <div class="bypass"><a href="https://www.ovagames.com/tutorial-to-bypass-google-drive-limit"><p>Bypass Google Drive Limit</p></a></div>
+                    <div class="software"><a href="https://www.ovagames.com/software-essentials"><p>Software Essentials</p></a></div>
+
+                </div>
+               
+               </div>
+               <div class="donate"><a href="https://www.ovagames.com/donate"><p>donate</p></a></div>
+               <div class="faq"><a href="https://www.ovagames.com/faq"><p>FAQ</p></a></div>
+            </div>
+            <div>
+                <input type="text"/>
+                <button class="but">SEARCH</button>
+            </div>
+        </div>
+        <div class="cato">
+            <div class="action"><a href="https://www.ovagames.com/category/action"><p>Action</p></a></div>
+            <div class="adventure"><a href="https://www.ovagames.com/category/adventure"><p>Adventure</p></a></div>
+            <div class="anime"><a href="https://www.ovagames.com/category/anime"><p>Anime</p></a></div>
+            <div class="arcade"><a href="https://www.ovagames.com/category/arcade"><p>Arcade</p></a></div>
+            <div class="casual"><a href="https://www.ovagames.com/category/casual"><p>Casual</p></a></div>
+            <div class="fighting"><a href="https://www.ovagames.com/category/fighting"><p>Fighting</p></a></div>
+            <div class="horror"><a href="https://www.ovagames.com/category/horror"><p>Horror</p></a></div>
+            <div class="platformer"><a href="https://www.ovagames.com/category/platformer"><p>Platformer</p></a></div>
+            <div class="puzzle"><a href="https://www.ovagames.com/category/puzzle"><p>Puzzle</p></a></div>
+            <div class="racing"><a href="https://www.ovagames.com/category/racing"><p>Racing</p></a></div>
+            <div class="rpg"><a href="https://www.ovagames.com/category/rpg"><p>Rpg</p></a></div>
+            <div class="shooter"><a href="https://www.ovagames.com/category/shooter"><p>Shooter</p></a></div>
+            <div class="simulation"><a href="https://www.ovagames.com/category/simulation"><p>Simulation</p></a></div>
+            <div class="sports"><a href="https://www.ovagames.com/category/sports"><p>Sports</p></a></div>
+            <div class="strategy"><a href="https://www.ovagames.com/category/strategy"><p>Strategy</p></a></div>
+            <div class="vn"><a href="https://www.ovagames.com/category/visual-novel"><p>VN</p></a></div>
+        </div>
+        <div class="logo">
+            <p class="ova">OVA</p>
+            <p class="games">Games</p>
+        </div>
+        <div class="scon" onmouseover="fun1()" onmouseout="fun2()">
+            <div class="snav">
+                <p class="exclusive">Exclusive games</p>
+            </div>
+            <img class="wwe" src="https://th.bing.com/th?id=OIP.zD-Cf_IyonbSQT1f-a3T8AHaDt&w=350&h=175&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"/>
+            <img class="milesmoral" src="https://wallpaperaccess.com/full/4726661.png"/>
+            <img class="uncharted" src="https://th.bing.com/th/id/OIP.vtPQlpnv6guMbXNnbULM5wHaEo?pid=ImgDet&rs=1"/>
+            <img class="revil" src="https://www.jogosgratisbrasil.com.br/wp-content/uploads/2019/04/re2.jpg"/>
+            <img class="witcher" src="https://th.bing.com/th/id/OIP.XaUy3PvLmhaEXodvmby96QHaEK?w=285&h=180&c=7&r=0&o=5&pid=1.7"/>
+            
+        </div>
+        <div class="gameblock">
+            <div class="subgame">
+                <div class="links"><a href="https://www.ovagames.com/injustice-2-legendary-edition-multi9-elamigos.html"><p>Injustice 2</p></a></div>
+                <video class="video" onmouseover="this.play()" onmouseout="this.pause()" controls autoplay muted>
+                    <source src="injustice 2.mp4" type="video/mp4"/>
+                </video>
+                <img src="https://image.winudf.com/v2/image/Y29tLndiLmdvb2cuaW5qdXN0aWNlLmJyYXdsZXIyMDE3X3NjcmVlbl8wX25pODlrMXU5/screen-0.jpg?h=800&fakeurl=1&type=.jpg"/>
+             </div>
+            <div class="subgame">
+                <div class="links"><a href="https://www.ovagames.com/sifu-deluxe-edition-multi12-elamigos.html"><p>Sifu</p></a></div>
+                <video class="video" onmouseover="this.play()" onmouseout="this.pause()" controls autoplay muted>
+                    <source src="sifu.mp4" type="video/mp4"/>
+                </video>
+                <img src="https://gpstatic.com/acache/56/69/1/uk/t620x300-0ebf266ffec1d212f94ae46312406418.jpg"/>
+            </div>
+            <div class="subgame">
+                <div class="links"><a href="https://www.ovagames.com/19047-hogwarts-legacy-deluxe-edition-multi11-elamigos.html"><p>Hogwarts Legacy</p></a></div>
+                <video id="video1" class="video" onmouseover="this.play()" onmouseout="this.pause()" controls autoplay muted>
+                    <source src="hogwarts.mp4" type="video/mp4"/>
+                </video>
+                <img id="fx12_img" src="https://wallpapercave.com/wp/wp8172984.jpg"/>
+            </div>
+            <div class="subgame">
+                <div class="links"><a href="https://www.ovagames.com/assassins-creed-valhalla-multi14-elamigos.html"><p>Assassin's Creed Valhalla</p></a></div>
+                <video class="video" onmouseover="this.play()" onmouseout="this.pause()" controls autoplay muted>
+                    <source src="valhalla.mp4" type="video/mp4"/>
+                </video>
+                <img src="https://gamerheadquarters.com/articles/images/screenshots/assassinscreed/valhallacover.jpg"/>
+            </div>
+            <div class="subgame">
+                <div class="links"><a href="https://www.ovagames.com/need-for-speed-payback-deluxe-edition-multi10-elamigos.html"><p>Need For Speed Payback</p></a></div>
+                <video class="video" onmouseover="this.play()" onmouseout="this.pause()" controls autoplay muted>
+                    <source src="nfs.mp4" type="video/mp4"/>
+                </video>
+                <img src="https://www.thegamesdownload.net/wp-content/uploads/2018/07/Need-For-Speed-Payback-cover-740x350.jpg"/>
+            </div>
+        </div>
+        <div class="pages">
+            <button class="p1"><a href="#">1</a></button>
+            <button class="p2"><a href="https://www.ovagames.com/page/2">2</a></button>
+            <button class="p3"><a href="https://www.ovagames.com/page/3">3</a></button>
+            <button class="p4"><a href="https://www.ovagames.com/page/4">4</a></button>
+            <button class="p5"><a href="https://www.ovagames.com/page/5">5</a></button>
+            <button class="p6"><a href="https://www.ovagames.com/page/6">6</a></button>
+            <button class="p7"><a href="https://www.ovagames.com/page/7">7</a></button>
+            <button class="p8"><a href="https://www.ovagames.com/page/8">8</a></button>
+            <button class="p9"><a href="https://www.ovagames.com/page/9">9</a></button>
+            <button class="p10"><a href="https://www.ovagames.com/page/10">10</a></button>
+            <button class="next"><a href="https://www.ovagames.com/page/2">next</a></button>
+        </div>
+        
+    <div class="copywrite">COPYRIGHT &#9400; 2023 OVAGAMES</div>   
+
+    </div>
+<script>
+     let idInterval
+    i=0
+    let a=["https://th.bing.com/th?id=OIP.zD-Cf_IyonbSQT1f-a3T8AHaDt&w=350&h=175&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2","https://wallpaperaccess.com/full/4726661.png","https://th.bing.com/th/id/OIP.vtPQlpnv6guMbXNnbULM5wHaEo?pid=ImgDet&rs=1","https://www.jogosgratisbrasil.com.br/wp-content/uploads/2019/04/re2.jpg","https://th.bing.com/th/id/OIP.XaUy3PvLmhaEXodvmby96QHaEK?w=285&h=180&c=7&r=0&o=5&pid=1.7"]
+    function fun()
+    {
+        let iref=document.getElementsByTagName("img")
+        i++
+        i=i%5
+        iref[0].src=a[i%5]
+        iref[1].src=a[(i+1)%5]
+        iref[2].src=a[(i+2)%5]
+        iref[3].src=a[(i+3)%5]
+        iref[4].src=a[(i+4)%5]
+    }
+     idInterval=setInterval(fun,3000)
+    function fun1()
+    {
+        clearInterval(idInterval)
+    }
+    function fun2(){
+        idInterval=setInterval(fun,3000)
+    }
+    // function fun1()
+    // {
+    //     let iref=document.getElementsByTagName("img")
+    //     i--
+    //     if (i<0)
+    //     {
+    //         i=a.length-1
+    //     }
+    //     i=i%9
+    //     iref[0].src=a[i%5]
+    //     iref[1].src=a[(i+1)%5]
+    //     iref[2].src=a[(i+2)%5]
+    //     iref[3].src=a[(i+3)%5]
+    //     iref[4].src=a[(i+4)%5]
+
+    // }
+
+</script>
+
+    
+</body>
+</html>
